@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto';
+    background-color:white;
+}
+
+.page-sidebar {
+    background-color: #333;
+}
+
+.accordion-menu > li > a {
+    color: #f2f2f2;
+}
+
+    .accordion-menu > li > a:hover {
+        color: #333;
+        background-color: #f2f2f2;
+    }
+
+
+
+
+    .logo-box a.logo-text {
+        color: #f2f2f2;
+    }

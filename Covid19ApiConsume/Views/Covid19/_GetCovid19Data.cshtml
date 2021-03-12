@@ -1,0 +1,56 @@
+﻿@model Covid19ApiConsume.Models.Covid19ViewModel
+
+<div class="main-wrapper">
+    <div class="row stats-row">
+        <div class="col-lg-4 col-md-12">
+            <div class="card card-transparent stats-card">
+                <div class="card-body">
+                    <div class="stats-info">
+                        <h5 id="yuvarla" class="card-tiGuatemalatle">@Model.Global.TotalConfirmed<span class="stats-change stats-change-success">+10%</span></h5>
+                        <p class="stats-text">Tüm Zamanlarda Toplam Vaka</p>
+                    </div>
+                    <div class="stats-icon change-success">
+                        <i class="material-icons">trending_up</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <div class="card card-transparent stats-card">
+                <div class="card-body">
+                    <div class="stats-info">
+                        <h5 class="card-title">@Model.Global.NewConfirmed<span class="stats-change stats-change-success">+16%</span></h5>
+                        <p class="stats-text">Toplam Günlük Vaka</p>
+                    </div>
+                    <div class="stats-icon change-success">
+                        <i class="material-icons">trending_up</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <div class="card card-transparent stats-card">
+                <div class="card-body">
+                    <div class="stats-info">
+                        <h5 class="card-title">@Model.Global.TotalDeaths<span class="stats-change stats-change-success">+12%</span></h5>
+                        <p class="stats-text">Tüm Zamanlarda Toplam Ölüm</p>
+                    </div>
+                    <div class="stats-icon change-success">
+                        <i class="material-icons">trending_up</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="alert no-m text-center" role="alert" style="background-color: #777; color:#f2f2f2; font-size:16px;">
+                    Veriler 30 dakka içinde güncellendi, Geçmişe erişmek için tıklayın.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    var name = "";
+    var email = "";
+    var subject = "";
+    var message = "";
+    var result = "";
+    if (IsPost)
+    {
+        name = Request.Form["name"];
+        email = Request.Form["email"];
+        subject = Request.Form["subject"];
+        message = Request.Form["message"];
+        if(name != "" && email != "" && subject != "" && message != "")
+        {
+            var userData = name + "," + email + "," + subject + "," + message + Environment.NewLine;
+            var dataFile = Server.MapPath("~/App_Data/Data.txt");
+            File.WriteAllText(@dataFile, userData);
+            result = "Bilgiler Kaydedildi.";
+        }else
+        {
+            result = "Boş alan bırakmayınız!";
+        }
+    }
+
+
+}
+
+<div class="row" style="padding:10px">
+    <div class="col-xl">
+        <div class="card">
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-8">
+                            <div class="section-heading">
+                                <h2 style="text-align:center">Bildir</h2>
+                                <div class="heading-line"></div>
+                                <p>
+                                    Herhangi bir sorunuz varsa lütfen aşağıdaki formu doldurun ve
+                                    24 saat içinde sizinle iletişime geçeceğiz.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-8">
+
+
+                            <form action="/Bildir/Index" method="post" class="form-horizontal contactForm" role="form">
+                                <div class="col-md-offset-2 col-md-8">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Adınız ve Soyadınız" data-rule="minlen:4">
+                                        <div class="validation"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-offset-2 col-md-8">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="E-posta Adresiniz" data-rule="email">
+                                        <div class="validation"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-offset-2 col-md-8">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Konu" data-rule="minlen:4">
+                                        <div class="validation"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-offset-2 col-md-8">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Mesajınızı yazın" placeholder="Mesajınızı Yazınız..."></textarea>
+                                        <div class="validation"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-8">
+                                        <button type="submit" class="btn btn-theme btn-lg btn-block">Mesajı Gönder</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div>
+                                @if (result != "")
+                                {
+                                    <p>Result: @result</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
